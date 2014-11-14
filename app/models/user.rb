@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   validates :email, uniqueness: {case_sensitive: false}
   validates :name, presence: true, uniqueness: {case_sensitive: false}
+  validates :email, presence: true
 
   before_validation do
     self.email = email? ? email.downcase : nil
